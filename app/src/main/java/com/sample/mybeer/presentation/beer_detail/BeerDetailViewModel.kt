@@ -3,8 +3,8 @@ package com.sample.mybeer.presentation.beer_detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sample.mybeer.common.Constants
-import com.sample.mybeer.common.Resource
+import com.sample.common.Constants
+import com.sample.common.Resource
 import com.sample.mybeer.domain.use_case.GetBeerDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

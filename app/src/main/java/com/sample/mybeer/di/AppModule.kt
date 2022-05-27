@@ -1,6 +1,6 @@
 package com.sample.mybeer.di
 
-import com.sample.mybeer.common.Constants
+import com.sample.common.Constants
 import com.sample.mybeer.data.remote.BeerApi
 import com.sample.mybeer.data.repository.BeerRepositoryImpl
 import com.sample.mybeer.domain.repository.BeerRepository

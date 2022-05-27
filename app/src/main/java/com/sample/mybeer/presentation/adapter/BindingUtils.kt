@@ -1,4 +1,4 @@
-package com.sample.mybeer.common
+package com.sample.mybeer.presentation.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

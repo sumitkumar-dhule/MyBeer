@@ -1,6 +1,6 @@
 package com.sample.mybeer.domain.use_case
 
-import com.sample.mybeer.common.Resource
+import com.sample.common.Resource
 import com.sample.mybeer.data.remote.dto.toBeer
 import com.sample.mybeer.domain.model.Beer
 import com.sample.mybeer.domain.repository.BeerRepository
