@@ -15,23 +15,11 @@ import com.sample.mybeer.presentation.adapter.BeerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 @AndroidEntryPoint
 class BeerListFragment : Fragment() {
 
-    private var _binding: FragmentBeerListBinding? = null
-
-
-    private val TAG = this.javaClass.simpleName
     private val viewModel by viewModels<BeerListViewModel>()
     private lateinit var beerAdapter: BeerAdapter
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,8 +34,6 @@ class BeerListFragment : Fragment() {
 
         beerAdapter = BeerAdapter()
         binding.rvBeers.adapter = beerAdapter
-
-        _binding = binding
 
         return binding.root
     }
@@ -73,17 +59,8 @@ class BeerListFragment : Fragment() {
                 value.beers.let {
                     beerAdapter.differ.submitList(it)
                 }
-
-
             }
         }
-
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }
