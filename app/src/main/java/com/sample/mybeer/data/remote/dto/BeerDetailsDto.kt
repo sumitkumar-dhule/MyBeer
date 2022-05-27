@@ -27,11 +27,9 @@ fun BeerDetailsDto.toBeerDetails(): BeerDetails {
         name = name,
         tagline = tagline,
         food_pairing = food_pairing,
-        ingredients = ingredients,
         brewers_tips = brewers_tips,
         abv = abv,
         first_brewed = first_brewed,
         ph = ph,
-        volume = volume
     )
 }

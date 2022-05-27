@@ -1,7 +1,6 @@
 package com.sample.mybeer.domain.use_case
 
 import com.sample.common.Resource
-import com.sample.mybeer.data.remote.dto.toBeerDetails
 import com.sample.mybeer.domain.model.BeerDetails
 import com.sample.mybeer.domain.repository.BeerRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +14,7 @@ class GetBeerDetailsUseCase @Inject constructor(private val repository: BeerRepo
     operator fun invoke(beerId: String): Flow<Resource<BeerDetails>> = flow {
         try {
             emit(Resource.Loading<BeerDetails>())
-            val beerDetails = repository.getBeerById(beerId).toBeerDetails()
+            val beerDetails = repository.getBeerById(beerId)
             emit(Resource.Success<BeerDetails>(beerDetails))
         } catch (e: HttpException) {
             emit(Resource.Error<BeerDetails>(e.localizedMessage ?: "An unexpected error occured"))
