@@ -12,7 +12,7 @@ class BeerAdapter : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<Beer>() {
         override fun areItemsTheSame(oldItem: Beer, newItem: Beer): Boolean {
-            return oldItem.urlToImage == newItem.urlToImage
+            return oldItem.imageUrl == newItem.imageUrl
         }
 
         override fun areContentsTheSame(oldItem: Beer, newItem: Beer): Boolean {

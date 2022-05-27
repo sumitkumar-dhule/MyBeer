@@ -52,7 +52,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBeerTagline"
-            app:urlToImage="@{viewModel.state.beer.urlToImage}"
+            app:urlToImage="@{viewModel.state.beer.imageUrl}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
