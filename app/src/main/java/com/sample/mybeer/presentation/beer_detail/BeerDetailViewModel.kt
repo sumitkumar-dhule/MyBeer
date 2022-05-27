@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.common.Constants
 import com.sample.common.Resource
-import com.sample.mybeer.domain.use_case.GetBeerDetailsUseCase
+import com.sample.domain.use_case.GetBeerDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
