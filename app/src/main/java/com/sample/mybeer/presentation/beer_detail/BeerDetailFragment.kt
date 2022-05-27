@@ -5,10 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sample.mybeer.R
 import com.sample.mybeer.databinding.FragmentBeerDetailBinding
+import com.sample.mybeer.databinding.FragmentBeerListBinding
+import com.sample.mybeer.presentation.adapter.BeerAdapter
+import com.sample.mybeer.presentation.beer_list.BeerListState
+import com.sample.mybeer.presentation.beer_list.BeerListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -16,32 +23,49 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BeerDetailFragment : Fragment() {
 
-    private var _binding: FragmentBeerDetailBinding? = null
+//    private var _binding: FragmentBeerDetailBinding? = null
+
+    private val viewModel by viewModels<BeerDetailViewModel>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+//    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentBeerDetailBinding.inflate(inflater, container, false)
+        val binding = FragmentBeerDetailBinding.inflate(inflater)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+
+//        _binding = binding
+
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+
+//        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+//
+//            viewModel.state.collect() { value: BeerDetailState ->
+//
+//                binding.tvBeerDescription.text = value.beer?.description
+//
+//            }
+//        }
+//
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sample.mybeer.R
+import com.sample.mybeer.common.Constants
 import com.sample.mybeer.databinding.FragmentBeerListBinding
 import com.sample.mybeer.presentation.adapter.BeerAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,18 +56,14 @@ class BeerListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         beerAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putString(Constants.PARAM_BEER_ID, it.id.toString())
+            }
+            findNavController().navigate(
+                R.id.action_FirstFragment_to_SecondFragment,
+                bundle
+            )
 
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-
-//            )
-
-//            val bundle = Bundle().apply {
-//                putSerializable("article", it)
-//            }
-//            findNavController().navigate(
-//                R.id.action_FirstFragment_to_SecondFragment,
-//                bundle
-//
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
@@ -80,10 +77,8 @@ class BeerListFragment : Fragment() {
 
             }
         }
-//
-//        binding.buttonFirst.setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//        }
+
+
     }
 
     override fun onDestroyView() {

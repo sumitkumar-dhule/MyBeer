@@ -9,6 +9,8 @@ import com.sample.mybeer.common.Constants
 import com.sample.mybeer.common.Resource
 import com.sample.mybeer.domain.use_case.GetBeerDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -19,8 +21,8 @@ class BeerDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(BeerDetailState())
-    val state: State<BeerDetailState> = _state
+    private val _state = MutableStateFlow(BeerDetailState())
+    val state: StateFlow<BeerDetailState> = _state
 
     init {
         savedStateHandle.get<String>(Constants.PARAM_BEER_ID)?.let { coinId ->
