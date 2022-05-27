@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.sample.mybeer.presentation.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:name="com.sample.mybeer.presentation.BeerListFragment"
+        android:label="@string/beer_list_fragment_label"
+        tools:layout="@layout/fragment_beer_list">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.sample.mybeer.presentation.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:name="com.sample.mybeer.presentation.BeerDetailFragment"
+        android:label="@string/beer_detail_fragment_label"
+        tools:layout="@layout/fragment_beer_detail">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
