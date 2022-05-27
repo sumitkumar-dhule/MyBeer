@@ -1,4 +1,4 @@
-package com.sample.mybeer.presentation
+package com.sample.mybeer.presentation.beer_list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.sample.mybeer.R
 import com.sample.mybeer.databinding.FragmentBeerListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class BeerListFragment : Fragment() {
 
     private var _binding: FragmentBeerListBinding? = null
