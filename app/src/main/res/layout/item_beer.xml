@@ -19,7 +19,7 @@
             android:layout_width="160dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"
-            app:urlToImage="@{beer.imageUrl}"
+            app:urlToImage="@{beer.urlToImage}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

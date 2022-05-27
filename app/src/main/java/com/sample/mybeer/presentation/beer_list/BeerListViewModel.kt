@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.sample.mybeer.common.Resource
 import com.sample.mybeer.domain.use_case.GetBeersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -16,8 +18,8 @@ class BeerListViewModel @Inject constructor(
     private val getCoinsUseCase: GetBeersUseCase
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(BeerListState())
-    val state: State<BeerListState> = _state
+    private val _state = MutableStateFlow(BeerListState())
+    val state: StateFlow<BeerListState> = _state
 
     init {
         getBeers()

@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sample.mybeer.databinding.ItemBeerBinding
 import com.sample.mybeer.domain.model.Beer
 
-class BeerAdapter : RecyclerView.Adapter<BeerAdapter.ArticleViewHolder>() {
+class BeerAdapter : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<Beer>() {
         override fun areItemsTheSame(oldItem: Beer, newItem: Beer): Boolean {
-            return oldItem.imageUrl == newItem.imageUrl
+            return oldItem.urlToImage == newItem.urlToImage
         }
 
         override fun areContentsTheSame(oldItem: Beer, newItem: Beer): Boolean {
@@ -22,10 +22,10 @@ class BeerAdapter : RecyclerView.Adapter<BeerAdapter.ArticleViewHolder>() {
 
     val differ = AsyncListDiffer(this, differCallback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemBeerBinding.inflate(layoutInflater, parent, false)
-        return ArticleViewHolder(binding)
+        return BeerViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -34,7 +34,7 @@ class BeerAdapter : RecyclerView.Adapter<BeerAdapter.ArticleViewHolder>() {
 
     private var onItemClickListener: ((Beer) -> Unit)? = null
 
-    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.bindArticle(article)
 
@@ -50,7 +50,7 @@ class BeerAdapter : RecyclerView.Adapter<BeerAdapter.ArticleViewHolder>() {
         onItemClickListener = listener
     }
 
-    class ArticleViewHolder(private val binding: ItemBeerBinding) :
+    class BeerViewHolder(private val binding: ItemBeerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindArticle(item: Beer) {
             binding.beer = item

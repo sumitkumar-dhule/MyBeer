@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sample.mybeer.R
 import com.sample.mybeer.databinding.FragmentBeerListBinding
+import com.sample.mybeer.presentation.adapter.BeerAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -18,30 +22,73 @@ class BeerListFragment : Fragment() {
 
     private var _binding: FragmentBeerListBinding? = null
 
+
+    private val TAG = this.javaClass.simpleName
+    private val viewModel by viewModels<BeerListViewModel>()
+    private lateinit var beerAdapter: BeerAdapter
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentBeerListBinding.inflate(inflater, container, false)
+        val binding = FragmentBeerListBinding.inflate(inflater)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        beerAdapter = BeerAdapter()
+        binding.rvBeers.adapter = beerAdapter
+
+        _binding = binding
+
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        beerAdapter.setOnItemClickListener {
+
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
+//            )
+
+//            val bundle = Bundle().apply {
+//                putSerializable("article", it)
+//            }
+//            findNavController().navigate(
+//                R.id.action_FirstFragment_to_SecondFragment,
+//                bundle
+//
         }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+
+            viewModel.state.collect() { value: BeerListState ->
+
+                value.beers.let {
+                    beerAdapter.differ.submitList(it)
+                }
+
+
+            }
+        }
+//
+//        binding.buttonFirst.setOnClickListener {
+//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+//        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
