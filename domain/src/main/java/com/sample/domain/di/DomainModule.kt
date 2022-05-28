@@ -13,6 +13,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 @InstallIn(ViewModelComponent::class)
 object DomainModule {
 
+/*
     @ViewModelScoped
     @Provides
     fun provideGetBeerDetailsUseCase(repository: BeerRepository): GetBeerDetailsUseCase {
@@ -24,5 +25,6 @@ object DomainModule {
     fun provideGetBeersUseCase(repository: BeerRepository): GetBeersUseCase {
         return GetBeersUseCase(repository)
     }
+*/
 
 }

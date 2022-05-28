@@ -26,9 +26,4 @@ object DataModule {
             .create(BeerApi::class.java)
     }
 
-    @Provides
-    @Singleton
-    fun provideBeerRepository(api: BeerApi): BeerRepository {
-        return BeerRepositoryImpl(api)
-    }
 }
