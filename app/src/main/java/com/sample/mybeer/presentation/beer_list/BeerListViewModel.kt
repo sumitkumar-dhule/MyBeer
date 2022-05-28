@@ -23,7 +23,7 @@ class BeerListViewModel @Inject constructor(
         getBeers()
     }
 
-    private fun getBeers() {
+    internal fun getBeers() {
         getBeersUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
