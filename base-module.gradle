@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+//apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdk ProjectConfig.compileSdk
+
+    defaultConfig {
+        minSdk ProjectConfig.minSdk
+        targetSdk ProjectConfig.targetSdk
+        versionCode ProjectConfig.versionCode
+        versionName ProjectConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+//    kapt DaggerHilt.hiltCompiler
+//    implementation DaggerHilt.hiltAndroid
+
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.37"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    implementation Glide.gilde
+    kapt Glide.gildeCompiler
+
+
+    // Retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.gsonConverter
+    implementation Retrofit.okHttpLoggingInterceptor
+
+    implementation AndroidX.coreKtx
+    implementation AndroidX.appCompat
+    implementation Google.material
+
+
+    // Coroutine Lifecycle Scopes
+    implementation AndroidX.lifecycleViewmodel
+    implementation AndroidX.lifecycleRuntime
+
+    // Navigation Components
+    implementation AndroidX.navigationFragmentKtx
+    implementation AndroidX.navigationUiKtx
+
+    testImplementation Testing.junit
+    testImplementation Testing.mockitokotlin
+    testImplementation Testing.mockitoCore
+    testImplementation Testing.coroutinesTest
+
+    androidTestImplementation Testing.junitExt
+    androidTestImplementation Testing.espresso
+    androidTestImplementation Testing.mockitoCore
+
+}

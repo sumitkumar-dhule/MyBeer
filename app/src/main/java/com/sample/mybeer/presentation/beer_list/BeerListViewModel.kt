@@ -2,8 +2,8 @@ package com.sample.mybeer.presentation.beer_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sample.mybeer.common.Resource
-import com.sample.mybeer.domain.use_case.GetBeersUseCase
+import com.sample.common.Resource
+import com.sample.domain.use_case.GetBeersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

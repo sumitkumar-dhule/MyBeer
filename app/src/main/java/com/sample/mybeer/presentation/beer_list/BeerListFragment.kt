@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sample.mybeer.R
-import com.sample.mybeer.common.Constants
+import com.sample.common.Constants
 import com.sample.mybeer.databinding.FragmentBeerListBinding
 import com.sample.mybeer.presentation.adapter.BeerAdapter
 import dagger.hilt.android.AndroidEntryPoint
