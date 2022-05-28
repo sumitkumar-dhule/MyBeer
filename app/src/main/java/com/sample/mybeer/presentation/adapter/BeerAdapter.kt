@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sample.mybeer.databinding.ItemBeerBinding
-import com.sample.mybeer.domain.model.Beer
+import com.sample.domain.model.Beer
 
 class BeerAdapter : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
 
