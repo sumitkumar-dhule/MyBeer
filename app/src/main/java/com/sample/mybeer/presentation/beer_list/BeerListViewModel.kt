@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BeerListViewModel @Inject constructor(
-    private val getCoinsUseCase: GetBeersUseCase
+    private val getBeersUseCase: GetBeersUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(BeerListState())
@@ -24,7 +24,7 @@ class BeerListViewModel @Inject constructor(
     }
 
     private fun getBeers() {
-        getCoinsUseCase().onEach { result ->
+        getBeersUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = BeerListState(beers = result.data ?: emptyList())

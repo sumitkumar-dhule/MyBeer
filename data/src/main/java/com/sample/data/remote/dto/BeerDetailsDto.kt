@@ -19,8 +19,8 @@ data class BeerDetailsDto(
     val volume: Volume
 )
 
-fun BeerDetailsDto.toBeerDetails(): com.sample.domain.model.BeerDetails {
-    return com.sample.domain.model.BeerDetails(
+fun BeerDetailsDto.toBeerDetails(): BeerDetails {
+    return BeerDetails(
         id = id,
         description = description,
         imageUrl = imageUrl,
