@@ -12,7 +12,6 @@ data class BeerDetailsDto(
     val id: Int,
     @SerializedName("image_url")
     val imageUrl: String,
-    val ingredients: Ingredients,
     val name: String,
     val ph: Double,
     val tagline: String,

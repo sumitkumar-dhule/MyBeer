@@ -12,6 +12,7 @@ fun getDummyBeer() = Beer(
 
 )
 
+
 fun getDummyBeerDetails() = BeerDetails(
     abv = 1.2,
     id = 1,

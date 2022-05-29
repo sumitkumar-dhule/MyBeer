@@ -4,10 +4,8 @@ import com.sample.domain.DummyRepository
 import com.sample.domain.getDummyBeerDetails
 import com.sample.domain.model.BeerDetails
 import com.sample.domain.repository.BeerRepository
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -17,6 +15,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
+@DelicateCoroutinesApi
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class GetBeerDetailsUseCaseImplTest {
 
