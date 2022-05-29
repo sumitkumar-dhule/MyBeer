@@ -28,8 +28,8 @@ class BeerDetailViewModel @Inject constructor(
         }
     }
 
-    private fun getBeer(coinId: String) {
-        getBeerDetailsUseCase(coinId).onEach { result ->
+    internal fun getBeer(beerID: String) {
+        getBeerDetailsUseCase(beerID).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = BeerDetailState(beer = result.data)
