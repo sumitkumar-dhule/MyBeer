@@ -1,30 +1,23 @@
 package com.sample.domain.di
 
-import com.sample.domain.repository.BeerRepository
 import com.sample.domain.use_case.GetBeerDetailsUseCase
+import com.sample.domain.use_case.GetBeerDetailsUseCaseImpl
 import com.sample.domain.use_case.GetBeersUseCase
+import com.sample.domain.use_case.GetBeersUseCaseImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
-@InstallIn(ViewModelComponent::class)
-object DomainModule {
+abstract class DomainModule {
+    @Binds
+    @Singleton
+    internal abstract fun bindGetBeerDetailsUseCase(useCaseImpl: GetBeerDetailsUseCaseImpl): GetBeerDetailsUseCase
 
-/*
-    @ViewModelScoped
-    @Provides
-    fun provideGetBeerDetailsUseCase(repository: BeerRepository): GetBeerDetailsUseCase {
-        return GetBeerDetailsUseCase(repository)
-    }
-
-    @ViewModelScoped
-    @Provides
-    fun provideGetBeersUseCase(repository: BeerRepository): GetBeersUseCase {
-        return GetBeersUseCase(repository)
-    }
-*/
-
+    @Binds
+    @Singleton
+    internal abstract fun bindGetBeersUseCase(useCaseImpl: GetBeersUseCaseImpl): GetBeersUseCase
 }

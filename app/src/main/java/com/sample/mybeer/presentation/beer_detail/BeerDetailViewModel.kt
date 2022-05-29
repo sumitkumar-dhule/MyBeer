@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BeerDetailViewModel @Inject constructor(
-    private val getCoinUseCase: GetBeerDetailsUseCase,
+    private val getBeerDetailsUseCase: GetBeerDetailsUseCase,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -28,8 +28,8 @@ class BeerDetailViewModel @Inject constructor(
         }
     }
 
-    private fun getBeer(coinId: String) {
-        getCoinUseCase(coinId).onEach { result ->
+    internal fun getBeer(beerID: String) {
+        getBeerDetailsUseCase(beerID).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = BeerDetailState(beer = result.data)

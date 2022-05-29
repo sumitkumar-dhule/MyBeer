@@ -2,8 +2,6 @@ package com.sample.data.di
 
 import com.sample.common.Constants
 import com.sample.data.remote.BeerApi
-import com.sample.data.repository.BeerRepositoryImpl
-import com.sample.domain.repository.BeerRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

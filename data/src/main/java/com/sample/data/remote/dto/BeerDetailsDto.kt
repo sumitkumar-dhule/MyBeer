@@ -12,15 +12,14 @@ data class BeerDetailsDto(
     val id: Int,
     @SerializedName("image_url")
     val imageUrl: String,
-    val ingredients: Ingredients,
     val name: String,
     val ph: Double,
     val tagline: String,
     val volume: Volume
 )
 
-fun BeerDetailsDto.toBeerDetails(): com.sample.domain.model.BeerDetails {
-    return com.sample.domain.model.BeerDetails(
+fun BeerDetailsDto.toBeerDetails(): BeerDetails {
+    return BeerDetails(
         id = id,
         description = description,
         imageUrl = imageUrl,
