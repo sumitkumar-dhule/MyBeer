@@ -13,13 +13,13 @@ class GetBeerDetailsUseCaseImpl @Inject constructor(private val repository: Beer
 
     override operator fun invoke(beerId: String): Flow<Resource<BeerDetails>> = flow {
         try {
-            emit(Resource.Loading<BeerDetails>())
+            emit(Resource.Loading())
             val beerDetails = repository.getBeerById(beerId)
-            emit(Resource.Success<BeerDetails>(beerDetails))
+            emit(Resource.Success(beerDetails))
         } catch (e: HttpException) {
-            emit(Resource.Error<BeerDetails>(   e.localizedMessage ?: "An unexpected error occured"))
+            emit(Resource.Error(   e.localizedMessage ?: "An unexpected error occured"))
         } catch (e: IOException) {
-            emit(Resource.Error<BeerDetails>("Couldn't reach server. Check your internet connection."))
+            emit(Resource.Error("Couldn't reach server. Check your internet connection."))
         }
     }
 
