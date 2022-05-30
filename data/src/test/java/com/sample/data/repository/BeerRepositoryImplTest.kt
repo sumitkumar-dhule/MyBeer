@@ -27,7 +27,7 @@ class BeerRepositoryImplTest {
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
     @Mock
-    lateinit var beerApi: BeerApi
+    internal lateinit var beerApi: BeerApi
 
     @Before
     fun setUp() {
