@@ -3,6 +3,5 @@ apply {
 }
 
 dependencies {
-
-    "implementation"(project(":common"))
+    "implementation"(project(Modules.common))
 }
