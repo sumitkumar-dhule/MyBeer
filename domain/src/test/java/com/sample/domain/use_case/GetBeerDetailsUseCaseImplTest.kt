@@ -23,7 +23,7 @@ class GetBeerDetailsUseCaseImplTest {
     private lateinit var getBeerDetailsUseCaseImpl: GetBeerDetailsUseCaseImpl
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
-    lateinit var repository: BeerRepository
+    private lateinit var repository: BeerRepository
 
     @Before
     fun setUp() {
