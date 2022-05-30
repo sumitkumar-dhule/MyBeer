@@ -9,7 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetBeersUseCaseImpl @Inject constructor(private val repository: BeerRepository) :
+internal class GetBeersUseCaseImpl @Inject constructor(private val repository: BeerRepository) :
     GetBeersUseCase {
 
     override operator fun invoke(): Flow<Resource<List<Beer>>> = flow {

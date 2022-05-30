@@ -12,11 +12,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModule {
+internal object DataModule {
 
     @Provides
     @Singleton
-    fun provideBeerApi(): BeerApi {
+    internal fun provideBeerApi(): BeerApi {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class DomainModule {
+internal abstract class DomainModule {
     @Binds
     @Singleton
     internal abstract fun bindGetBeerDetailsUseCase(useCaseImpl: GetBeerDetailsUseCaseImpl): GetBeerDetailsUseCase
