@@ -20,7 +20,8 @@
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:urlToImage="@{beer.imageUrl}" />
+            app:urlToImage="@{beer.imageUrl}"
+            android:contentDescription="@string/beer_brand_image"/>
 
         <TextView
             android:id="@+id/tvName"
