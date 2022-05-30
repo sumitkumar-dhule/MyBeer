@@ -1,7 +1,7 @@
 # Beer Catalog Application
 
 ## Technical Specification
-This is a multi-module project with modularization by feature.
+This is a multi-module project with clean architecture
 
 Architecture: Clean MVVM
 
