@@ -8,7 +8,7 @@ import com.sample.domain.model.BeerDetails
 import com.sample.domain.repository.BeerRepository
 import javax.inject.Inject
 
-class BeerRepositoryImpl@Inject constructor(private val beerApi: BeerApi):
+internal class BeerRepositoryImpl@Inject constructor(private val beerApi: BeerApi):
     BeerRepository {
     override suspend fun getBeers(): List<Beer> {
         return beerApi.getBeers().map { it.toBeer() }
