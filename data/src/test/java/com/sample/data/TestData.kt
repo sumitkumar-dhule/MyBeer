@@ -15,7 +15,7 @@ fun getDummyBeer() = Beer(
 
 )
 
-fun getDummyBeerDto() = BeerDto(
+internal fun getDummyBeerDto() = BeerDto(
     id = 1,
     description = "description",
     imageUrl = "imageUrl",
@@ -42,7 +42,7 @@ fun getDummyBeerDetails() = BeerDetails(
     food_pairing = listOf("pairs")
 )
 
-fun getDummyBeerDetailsDto() = BeerDetailsDto(
+internal fun getDummyBeerDetailsDto() = BeerDetailsDto(
     abv = 1.2,
     id = 1,
     description = "description",

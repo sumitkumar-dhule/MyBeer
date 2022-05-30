@@ -5,7 +5,7 @@ import com.sample.data.remote.dto.BeerDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface BeerApi {
+internal interface BeerApi {
 
     @GET("v2/beers")
     suspend fun getBeers(): List<BeerDto>
