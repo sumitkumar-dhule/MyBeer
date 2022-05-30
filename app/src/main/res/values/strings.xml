@@ -1,12 +1,7 @@
 <resources>
     <string name="app_name">MyBeer</string>
-    <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="beer_list_fragment_label">Beers</string>
     <string name="beer_detail_fragment_label">Beer Details</string>
-    <string name="next">Next</string>
-    <string name="previous">Back</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="beer_brand_image">Beer Brand Image</string>
 </resources>

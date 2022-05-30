@@ -54,7 +54,7 @@ class BeerListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
 
-            viewModel.state.collect() { value: BeerListState ->
+            viewModel.state.collect { value: BeerListState ->
 
                 value.beers.let {
                     beerAdapter.differ.submitList(it)
