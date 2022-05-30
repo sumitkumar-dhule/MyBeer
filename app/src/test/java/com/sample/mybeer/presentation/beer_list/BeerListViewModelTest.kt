@@ -34,7 +34,7 @@ class BeerListViewModelTest : BaseViewModelTest() {
     @Test
     fun `Successful Result with List of Beers`() = runBlockingMainTest {
         val inputFlow: Flow<Resource<List<Beer>>> =
-            flowOf(Resource.Success<List<Beer>>(listOf(getDummyBeer())))
+            flowOf(Resource.Success(listOf(getDummyBeer())))
         whenever(getBeersUseCase.invoke()).thenReturn(inputFlow)
         beerListViewModel.getBeers()
         assertEquals(getDummyBeer(), beerListViewModel.state.value.beers.first())

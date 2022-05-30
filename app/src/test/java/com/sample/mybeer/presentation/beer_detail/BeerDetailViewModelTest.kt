@@ -39,7 +39,7 @@ class BeerDetailViewModelTest : BaseViewModelTest() {
     @Test
     fun `Successful Result with Detail of Beer`() = runBlockingMainTest {
         val inputFlow: Flow<Resource<BeerDetails>> =
-            flowOf(Resource.Success<BeerDetails>(getDummyBeerDetails()))
+            flowOf(Resource.Success(getDummyBeerDetails()))
         whenever(beerDetailsUseCase.invoke("1")).thenReturn(inputFlow)
         beerDetailViewModel.getBeer("1")
         assertEquals(getDummyBeer(), beerDetailViewModel.state.value.beer)

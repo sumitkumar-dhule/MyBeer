@@ -1,7 +1,6 @@
 package com.sample.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import com.sample.domain.model.BeerDetails
 
 data class BeerDetailsDto(
     val abv: Double,
@@ -15,20 +14,5 @@ data class BeerDetailsDto(
     val name: String,
     val ph: Double,
     val tagline: String,
-    val volume: Volume
+    val volume: VolumeDto
 )
-
-fun BeerDetailsDto.toBeerDetails(): BeerDetails {
-    return BeerDetails(
-        id = id,
-        description = description,
-        imageUrl = imageUrl,
-        name = name,
-        tagline = tagline,
-        food_pairing = food_pairing,
-        brewers_tips = brewers_tips,
-        abv = abv,
-        first_brewed = first_brewed,
-        ph = ph,
-    )
-}

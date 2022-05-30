@@ -3,8 +3,6 @@ apply {
 }
 
 dependencies {
-
-    "implementation"(project(":common"))
-    "implementation"(project(":domain"))
-
+    "implementation"(project(Modules.common))
+    "implementation"(project(Modules.domain))
 }

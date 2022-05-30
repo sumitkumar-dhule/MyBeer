@@ -28,7 +28,7 @@ class BeerDetailViewModel @Inject constructor(
         }
     }
 
-    internal fun getBeer(beerID: String) {
+    fun getBeer(beerID: String) {
         getBeerDetailsUseCase(beerID).onEach { result ->
             when (result) {
                 is Resource.Success -> {
