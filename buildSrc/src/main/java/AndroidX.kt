@@ -17,7 +17,4 @@ object AndroidX {
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
-    private const val coroutinesVersion = "1.3.5"
-    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 }
