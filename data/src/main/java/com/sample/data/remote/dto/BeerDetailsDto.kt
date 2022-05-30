@@ -2,7 +2,7 @@ package com.sample.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class BeerDetailsDto(
+internal data class BeerDetailsDto(
     val abv: Double,
     val brewers_tips: String,
     val description: String,
