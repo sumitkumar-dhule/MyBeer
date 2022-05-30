@@ -20,7 +20,7 @@ internal fun BeerDetailsDto.toBeerDetails(): BeerDetails {
     )
 }
 
-fun BeerDto.toBeer(): Beer {
+internal fun BeerDto.toBeer(): Beer {
     return Beer(
         id = id,
         description = description,
